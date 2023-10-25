@@ -1,4 +1,4 @@
-import { handleApiError } from '@/utils/helpers';
+import { handleApiError } from '../utils/helpers';
 import shotData from './data/shotsNine.json';
 
 export const shots = async () => {
