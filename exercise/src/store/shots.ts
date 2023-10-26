@@ -81,9 +81,11 @@ export const useShotsStore = defineStore('shots', () => {
   const error = ref<Error | undefined>()
   const loadState = ref<SHOTS_LOAD_STATE>('NONE')
 
-  const allShots = async (): Promise<void> => {
+  const loadShots = async (): Promise<void> => {
     loadState.value = 'LOADING'
     try {
+      // Simulate a load.
+      await wait(1.5)
       const res = await getShots()
       loadState.value = 'SUCCESS'
       shots.value = res
@@ -93,5 +95,13 @@ export const useShotsStore = defineStore('shots', () => {
     }
   }
 
-  return { shots, loadState, error, allShots }
+  return { shots, loadState, error, loadShots }
 })
+
+const wait = (sec: number): Promise<void> => {
+  return new Promise(resolve => {
+    window.setTimeout(() => {
+      return resolve()
+    }, sec * 1000)
+  })
+}
