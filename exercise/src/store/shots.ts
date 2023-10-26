@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { shots as getShots } from '../api/shots'
 import { ref } from 'vue'
 
-interface Snapshot {
+export interface Snapshot {
   distance: number,
   height: number,
   milliseconds: number,
@@ -34,7 +34,7 @@ interface Snapshot {
 
 }
 
-interface Shot {
+export interface Shot {
   actionIndex: number,
   actionReason: string,
   actionType: string,
